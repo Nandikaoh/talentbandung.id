@@ -2,17 +2,17 @@ body{
     background-image    : url(Images/background.png);
     background-repeat   : no-repeat;
     background-size     : 100%;
-    background-color    : white;
+    background-color    : rgb(255, 255, 255);
     font-family         : 'Roboto, sans-serif';
 }
 
-*{
+*{ /*untuk mengukur semua box*/
     box-sizing: border-box;
 }
 
 .site-content{
     max-width   : 1125px;
-    margin  : 0 auto;
+    margin      : 0 auto;
 }
 
 .hero{
@@ -57,8 +57,14 @@ body{
     font-size       : 16px;
     padding         : 20px 50px 20px 25px;
     border-radius   : 45px;
-    border          : none;
+    border          : 2px solid white;
     box-shadow      : 0 10px 13px rgba(0,0,0,0.1);
+    outline         : none;
+    transition      : border-color 300ms ease-in;
+}
+
+.hero form input:focus{
+    border: 2px solid rgb(5, 5, 5);
 }
 
 .hero form button{
@@ -66,7 +72,91 @@ body{
     top         : 10px;
     right       : 20px;
     font-size   : 36px;
-    color       : rgb(0, 255, 34);
+    color       : rgb(3, 3, 3);
     border      : none;
     background  : none;
+}
+
+.grid-layout:after{
+    content: "";
+    clear  : both;
+    display: block;
+}
+
+.grid-item{
+    width  : 33.333%;
+    float  : left;
+    padding: 0 15px 0 0;
+}
+
+.grid-item:nth-child(3n+1){
+    clear: both;
+}
+
+.taman{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    box-shadow: 0 9px 18px rgba(0,0,0,0.5);
+}
+
+.taman figure{
+    margin: 0;
+}
+
+.taman figure img{
+    width: 100%;
+}
+
+.taman a{
+    text-decoration: none;
+}
+
+.taman-detail{
+    padding: 15px;
+    text-align: center;
+    font-size: 12px;
+    margin: 1px 0 10px;
+}
+
+.taman-detail h2{
+    font-size: 28px;
+    margin: 5px 0 10px;
+}
+
+.taman-detail p{
+    font-size: 14px;
+}
+
+.taman-detail .title{
+    color: black;
+}
+
+.taman-detail .subtitle{
+    color: black;
+    margin-top: 5px;
+}
+
+.footer{
+    text-align: center;
+    padding: 90px 15px 48px;
+}
+
+/*untuk tampilan di Tablet*/
+@media screen and (max-width:990px){
+    .grid-item{
+        width: 50%;
+    }
+    .grid-item:nth-child(3n+1){
+        clear:none;
+    }
+    .grid-item:nth-child(2n+1){
+        clear: both;
+    }
+}
+
+/*untuk tampilan di Smartphone*/
+@media screen and (max-width:480px){
+    .grid-item{
+        width: 100%;
+    }   
 }
