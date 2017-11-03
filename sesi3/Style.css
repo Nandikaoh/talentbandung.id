@@ -42,6 +42,7 @@ body{
 }
 
 .hero p{
+    font-family: 'Roboto';
     font-size   : 22px;
     font-weight : lighter;
 }
@@ -159,4 +160,59 @@ body{
     .grid-item{
         width: 100%;
     }   
+}
+
+.map{
+    width   : 990px;
+    margin  : 0 auto;
+    position: relative;
+}
+
+.map:before,
+.map:after{
+    content : " ";
+    width   : 100%;
+    height  : 200px;
+    position: absolute;
+    left    : 0;
+}    
+
+.map:before{
+		top: 0;
+		background-image: linear-gradient(white, rgba(255,255,255,0) )
+}
+
+.map:after{
+    bottom: 0;
+    background-image: linear-gradient(rgba(255,255,255,0), white )
+}
+
+img{
+    max-width: 100%;
+}
+
+form .home{
+    width           : 15%;
+    font-size       : 14px;
+    border-radius   : 10px;
+    margin          : auto;
+    text-decoration-style: none;
+    border          : 2px solid rgb(10, 240, 248);
+    background-color: rgb(10, 240, 248);
+    box-shadow      : 0 10px 13px rgba(0,0,0,0.1);
+    outline         : none;
+    transition      : border-color 300ms ease-in;
+}
+
+form .nav{
+    width           : 15%;
+    font-size       : 14px;
+    border-radius   : 10px;
+    margin          : auto;
+    text-decoration-style: none;
+    border          : 2px solid rgb(10, 66, 248);
+    background-color: rgb(10, 66, 248);
+    box-shadow      : 0 10px 13px rgba(0,0,0,0.1);
+    outline         : none;
+    transition      : border-color 300ms ease-in;
 }
