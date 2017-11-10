@@ -191,11 +191,11 @@ img{
     max-width: 100%;
 }
 
-form .home{
+.home{
     width           : 15%;
     font-size       : 14px;
     border-radius   : 10px;
-    margin          : auto;
+    margin          : center;
     text-decoration-style: none;
     border          : 2px solid rgb(10, 240, 248);
     background-color: rgb(10, 240, 248);
@@ -204,15 +204,19 @@ form .home{
     transition      : border-color 300ms ease-in;
 }
 
-form .nav{
+.nav{
     width           : 15%;
     font-size       : 14px;
     border-radius   : 10px;
-    margin          : auto;
+    margin          : center;
     text-decoration-style: none;
     border          : 2px solid rgb(10, 66, 248);
     background-color: rgb(10, 66, 248);
     box-shadow      : 0 10px 13px rgba(0,0,0,0.1);
     outline         : none;
     transition      : border-color 300ms ease-in;
+}
+
+.map-nav{
+    text-align: center;
 }
