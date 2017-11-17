@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jelajah Taman Tematik Bandung</title>
-    <link href="https://fonts.googleapis.com/css?family=Caveat|Playfair+Display|Roboto:300,400,400i" rel="stylesheet">
+    <title>Jelajah Taman Tematik bandung</title>
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Playfair+Display|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <div class="site-content">
@@ -22,14 +21,11 @@
                 <button type="submit"><i class="ion-ios-search-strong"></i></button>
             </form>
         </div>
-        <div class="daftar-taman grid-layout">
-            <div class="grid-item">
+        <div class="daftar-taman">
             <div class="taman">
-                <figure>
-                    <a href="single.html">
-                        <img src="Images/taman-balkot.jpg" alt="">
-                    </a>
-                </figure>
+                <a href="single.html">
+                    <img src="Images/taman-balkot.jpg" alt="">
+                </a>
                 <div class="taman-detail">
                     <h2>
                         <a href="single.html">
@@ -38,16 +34,12 @@
                         </a>
                     </h2>
                     <p>Jl. Wastu Kencana, Bandung Wetan</p>
-                </div> 
-            </div>   
+                </div>    
             </div>
-            <div class="grid-item">
             <div class="taman">
-                <figure>
-                    <a href="single.html">
-                        <img src="Images/Alun-alun.jpg" alt="">
-                    </a>
-                </figure>
+                <a href="single.html">
+                    <img src="Images/Alun-alun.jpg" alt="">
+                </a>
                     <div class="taman-detail">
                         <h2>
                             <a href="single.html">
@@ -57,15 +49,11 @@
                         </h2>
                         <p>Jl. Alun-alun TImur, Regol</p>
                     </div>    
-            </div>
-            </div>
-            <div class="grid-item">           
+            </div>           
             <div class="taman">
-                <figure>
-                    <a href="single.html">
-                        <img src="Images/Taman-lansia.jpg" alt="">
-                    </a>
-                </figure>
+                <a href="single.html">
+                    <img src="Images/Taman-lansia.jpg" alt="">
+                </a>
                     <div class="taman-detail">
                         <h2>
                             <a href="single.html">
@@ -76,14 +64,10 @@
                         <p>Jl. Cibeunying, Cibeunying Kaler</p>
                     </div>    
             </div>
-            </div>
-            <div class="grid-item">
             <div class="taman">
-                <figure>
-                    <a href="single.html">
-                        <img src="Images/Alun-alun_uber.jpg" alt="">
-                    </a>
-                </figure>
+                <a href="single.html">
+                    <img src="Images/Alun-alun_uber.jpg" alt="">
+                </a>
                     <div class="taman-detail">
                         <h2>
                             <a href="single.html">
@@ -94,14 +78,10 @@
                         <p>Lapangan Ujungberung, Ujungberung</p>
                     </div>    
             </div>
-            </div>
-            <div class="grid-item">
             <div class="taman">
-                <figure>
-                    <a href="single.html">
-                        <img src="Images/Taman-braga.jpg" alt="">
-                    </a>
-                </figure>
+                <a href="single.html">
+                    <img src="Images/Taman-braga.jpg" alt="">
+                </a>
                     <div class="taman-detail">
                         <h2>
                             <a href="single.html">
@@ -112,14 +92,10 @@
                         <p>Jl. Naripan, Sumur Bandung</p>
                     </div>    
             </div>
-            </div>
-            <div class="grid-item">
             <div class="taman">
-                <figure>
-                    <a href="single.html">
-                        <img src="Images/Taman-film.jpg" alt="">
-                    </a>
-                </figure>
+                <a href="single.html">
+                    <img src="Images/Taman-film.jpg" alt="">
+                </a>
                     <div class="taman-detail">
                         <h2>
                             <a href="single.html">
@@ -131,7 +107,37 @@
                     </div>    
             </div>
         </div>
-        </div>
+        <script src="jquery.min.js"></script>
+        <script>
+            $.get('https://ariona.net/talentbandung/',function(data,status) {
+                var taman=$('#list-taman');
+
+                for(i=0; i<data.length; i++){
+                    var listItem='<li class="daftar-taman">'+data[i].nama+' '+data[i].image.thumbnail+'</li>';
+                    taman.append(listItem);
+
+                    console.log(data[i]);
+                }
+            });
+           
+            var filter=$('#filter');
+            filter.keyup(filterTaman);
+            
+            function filterTaman(){ 
+                var taman=$('.taman');
+                for (i=0; i<taman.length; i++){
+                    var listTaman=$(taman[i]).text().toLowerCase();//textContent untuk memanggil perintah sebelumnya
+                    if(listTaman.indexOf(filter.val().toLowerCase()) != -1){// -1 didapat dari karakter yang tidak ketemu dari .indexOf, .toLowerCase untuk meniadakan case sensitive
+                        $(taman[i]).slideDown();
+                    }
+                    else
+                    {
+                        $(taman[i]).slideUp();
+                    }
+                }
+            } 
+        
+        </script>
     <div class="footer">
         <p>&copy; copyright 2017 by talentbandung.id</p>
     </div>

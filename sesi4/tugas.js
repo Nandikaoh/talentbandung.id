@@ -1,10 +1,9 @@
 function greet() {
-    var tombol=document.getElementsByClassName("tombol1");
-    var i;
-    for (i=0; i<tombol; i++){
-        console.log('Hallo '+i)
+    var tombol=event.target.textcontent;
+        alert('Hallo '+tombol)
     }
 }
 
+var btn=document.getElementsByClassName("")
 var btn=document.getElementById("greet");
 btn.addEventListener("click", greet);
