@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="daftar-taman">
-            <div class="taman">
+            <!-- <div class="taman">
                 <a href="single.html">
                     <img src="Images/taman-balkot.jpg" alt="">
                 </a>
@@ -105,20 +105,35 @@
                         </h2>
                         <p>Jl. Tamansari, Coblong</p>
                     </div>    
-            </div>
+            </div> -->
         </div>
         <script src="jquery.min.js"></script>
         <script>
-            $.get('https://ariona.net/talentbandung/',function(data,status) {
-                var taman=$('#list-taman');
-
-                for(i=0; i<data.length; i++){
-                    var listItem='<li class="daftar-taman">'+data[i].nama+' '+data[i].image.thumbnail+'</li>';
-                    taman.append(listItem);
-
-                    console.log(data[i]);
-                }
-            });
+$.get('https://ariona.net/talentbandung/', function(data, status) {
+    
+      for (var i = 0; i < data.length; i++) {
+        $('.daftar-taman').append('<div class="grid-item">'+'<div class="taman">'+'<figure>'+'<a href="single.html">'+'<img src="'+data[i].image.thumbnail+'">'
+                  +'</a>'+'</figure>'+'<div class="taman-detail">'+'<h2>'+'<a href="single.html">'+'<span class="subtitle">Taman</span>'+'<span class="title">'+data[i].nama+'</span>'
+                  +'</a>'+'</h2>'+'<p>'+data[i].alamat+'</p>'+'</div>'+'</div>'+'</div>');
+      }
+    
+      var filter = $('input');
+      filter.keyup(tamanfilter);
+    
+      function tamanfilter(){
+        var tamandiv = $('.taman');
+    
+        for (var i = 0; i < tamandiv.length; i++) {
+          var item = $(tamandiv[i]).text().toLowerCase();
+          if (item.indexOf(filter.val().toLowerCase()) > -1) {
+            $(tamandiv[i]).slideDown();
+          }else {
+            $(tamandiv[i]).slideUp();
+          }
+        }
+      }
+    
+    });
            
             var filter=$('#filter');
             filter.keyup(filterTaman);
@@ -136,7 +151,6 @@
                     }
                 }
             } 
-        
         </script>
     <div class="footer">
         <p>&copy; copyright 2017 by talentbandung.id</p>
